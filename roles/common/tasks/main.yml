@@ -4,19 +4,10 @@
   apt:
     name: '*'
     state: latest
+    update_cache: yes
   become: yes
-
 - name: Install PHP, PHP mod, & git.
   apt:
-    name: "{{ item }}"
+    name: ['php', 'libapache2-mod-php', 'php-curl', 'php-xml', 'php-mysql', 'git']
     state: present
-  with_items:
-    - php
-    - libapache2-mod-php 
-    - php-mcrypt 
-    - php-curl
-    - php-xml
-    - php-memcached
-    - php-mysql
-    - git
   become: yes

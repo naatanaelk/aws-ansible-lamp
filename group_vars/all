@@ -2,12 +2,12 @@
 
 instance_type: "t2.micro"
 region: "us-east-1"
-image_id: "ami-0739f8cdb239fe9ae"
+image_id: "ami-02fe94dee086c0c37"
 key_pair: "jenkins-master"
 security_group: "ssh-http-mysql"
 volume_size: 16
-aws_access_key: ""
-aws_secret_key: ""
+ec2_access_key: ""
+ec2_secret_key: ""
 
 # NTP server
 

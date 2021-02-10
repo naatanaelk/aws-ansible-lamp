@@ -2,24 +2,24 @@
 # tasks file for db
 
 - name: Install MySQL
-  yum:
-    name: "{{ item }}"
+  apt:
+    name: ['mysql-server', 'mysql-client', 'python-mysqldb', 'libmysqlclient-dev']
     state: present
-  with_items:
-    - mysql-server
+    update_cache: yes
   become: yes
 
-- name: Start MySQL
-  service:
-    name: mysqld
-    state: started
-    enabled: yes
+- name: Update all package
+  apt:
+    name: '*'
+    state: latest
+    update_cache: yes
   become: yes
 
 - name: Set root password
   mysql_user:
     name: root
     password: "{{ mysql_root_password }}"
+    state: present
     check_implicit_admin: true
 
 - name: Create ~/.my.cnf file for creds
