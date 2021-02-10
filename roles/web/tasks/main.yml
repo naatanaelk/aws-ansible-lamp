@@ -1,9 +1,10 @@
 ---
 # tasks file for web
-- name: Install Apache
+- name: Install Apache & MySQL Client
   apt:
-    name: ['apache2']
+    name: ['apache2', 'mysql-client']
     state: present
+    update_cache: yes
   become: yes
 
 - name: Start Apache
