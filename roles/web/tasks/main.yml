@@ -1,0 +1,23 @@
+---
+# tasks file for web
+- name: Install Apache
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apache2
+  become: yes
+
+- name: Start Apache
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Copy index.html file
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+  become: yes
+  

@@ -1,0 +1,14 @@
+# AWS variables
+
+instance_type: "t2.micro"
+region: "us-east-1"
+image_id: "ami-0739f8cdb239fe9ae"
+key_pair: "jenkins-master"
+security_group: "ssh-http-mysql"
+volume_size: 16
+aws_access_key: ""
+aws_secret_key: ""
+
+# NTP server
+
+ntp_server: 0.pool.ntp.org
