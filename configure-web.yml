@@ -5,7 +5,7 @@
   roles:
   - web-config
 
-- hosts: db
+- hosts: localhost
   vars_files:
   - group_vars/all
   - group_vars/tag_ansible_group_dbservers

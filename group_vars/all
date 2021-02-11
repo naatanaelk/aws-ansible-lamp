@@ -9,6 +9,7 @@ volume_size: 16
 ec2_access_key: ""
 ec2_secret_key: ""
 
-# NTP server
+# Hosts variables
 
-ntp_server: 0.pool.ntp.org
+db1_hosts: ""
+web1_hosts: ""
