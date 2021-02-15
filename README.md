@@ -1,5 +1,7 @@
 # AWS-LAMP: Playbooks to provision a basic LAMP stack on AWS
 
+This playbook is meant to provision, install, and deploy a simple LAMP stack website for a rough example of how you can leverage Ansible to automate provision & installation on AWS. It will create 2 instance in AWS, install LAMP stack on them, and deploy a basic website. I hope that this repository can provide you insight on how to provision EC2 instance on AWS environment and fiddle with it!
+
 There are two playbooks you need to run:
 - provision-ec2.yml
 - install-stack.yml
@@ -24,6 +26,21 @@ Check the installation by issuing:
 ```
 ansible --version
 ```
+
+## Configuring EC2 Key & Security Group
+As this playbook assume that a preconfigured key & security group on AWS already exist, you need to configure this variables first.
+
+You will need to create a new key called "jenkins-master":
+1. Go to EC2 Dashboard.
+2. Network & Security > Key Pairs.
+3. Create Key Pair, name it "jenkins-master", and choose pem format.
+4. Copy your key pair to your Ansible Control Node in /home/ubuntu/.ssh/jenkins-master.pem
+
+You will also need to create a security group called "ssh-http-mysql":
+1. Go to EC2 Dashboard.
+2. Network & Security > Security Groups.
+3. Create Security Group, name it "ssh-http-mysql".
+4. Add Inbound Rule for SSH (Port 22), HTTP (Port 80), and MySQL (Port 3306).
 
 ## Provision EC2
 This playbook creates one web server instances as a fronted, one MySQL instance as a db using the Ubuntu 18.04. It will also, if you want, provision a simple LAMP website to demonstrate the success of the installation.
