@@ -9,6 +9,9 @@ There are two playbooks you need to run:
 And one optional playbook you can run:
 - configure-web.yml (On Progress)
 
+When you are finished and want to terminate all instances, you can run:
+- terminate-ec2.yml
+
 ## Installing Ansible on you Control Node
 To use ansible automation script, you will need ansible on a separate machine or virtual machine. For this project, I am using ubuntu 20.04 as my Control Node. You can also use other linux machine for your control node. This playbook is working on:
 - Ansible version >= 2.9
@@ -117,3 +120,12 @@ After the playbook finished, check you website at:
 ```
 http://<public_ip_of_web_server>
 ```
+
+## Terminating All Instances
+To terminate Web & DB Instance, simply run:
+
+```
+ansible-playbook terminate-ec2.yml
+```
+
+This will destroy Web & DB Instance you have just provision in your selected region.
