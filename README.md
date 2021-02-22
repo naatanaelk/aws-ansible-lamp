@@ -48,12 +48,13 @@ You will also need to create a security group called "ssh-http-mysql":
 ## Provision EC2
 This playbook creates one web server instances as a fronted, one MySQL instance as a db using the Ubuntu 18.04. It will also, if you want, provision a simple LAMP website to demonstrate the success of the installation.
 
-You will need to install the boto Python & PyMySQL module first:
+You will need to install the boto Python, MySQL Client, and PyMySQL module first:
 
 ```
 sudo apt-get install python3-pip
 sudo pip3 install boto boto3
 sudo apt-get install python3-pymysql
+sudo apt-get install mysql-cient
 sudo apt-get update
 ```
 
